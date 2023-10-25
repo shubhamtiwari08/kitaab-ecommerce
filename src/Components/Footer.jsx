@@ -8,7 +8,7 @@ function Footer() {
       <div className="flex gap-10">
         <a
           className="icon"
-          href="https://www.linkedin.com/in/harsh-mohite-862813140/"
+          href="https://www.linkedin.com/in/shubham-tiwari-65bb97210/"
           target="_blank"
           rel="noreferrer"
         >
@@ -26,7 +26,7 @@ function Footer() {
         </a>
         <a
           className="icon"
-          href="https://github.com/harsh-mohite-09/"
+          href="https://github.com/shubhamtiwari08"
           target="_blank"
           rel="noreferrer"
         >
@@ -44,7 +44,7 @@ function Footer() {
         </a>
         <a
           className="icon"
-          href="https://twitter.com/harsh_m09/"
+          href="https://github.com/shubhamtiwari08"
           target="_blank"
           rel="noreferrer"
         >

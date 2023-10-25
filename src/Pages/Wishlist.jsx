@@ -1,8 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import Navbar from '../Components/Navbar'
 
 function Wishlist() {
+
+  const wishlist = useSelector((state)=>state.wishlistReducer)
+
   return (
-    <div>Wishlist</div>
+    <div>
+      <div>
+    <Navbar/>
+    {/* wishlist items */}
+     <div>
+       {
+        
+       }
+     </div>
+    </div>
+    </div>
   )
 }
 

@@ -2,13 +2,16 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-function ProductCard() {
+function ProductCard({data}) {
+
+  const {img,name,price, isBestSeller, author, category, originalPrice, delivery, rating, pages, categoryTitle} = data
+
   return (
     <div className=' w-56 shadow-md rounded-md shadow-slate-300 p-2'>
       <div
         className=" w-42 relative pt-0 px-3 pb-4"
       >
-        <img src={'https://rukminim1.flixcart.com/image/612/612/kgwld3k0/book/1/9/4/rich-dad-poor-dad-original-imafxf885pytvycy.jpeg?q=70'} alt="product" />
+        <img src={img} alt="product" />
         <button className=' w-8 h-8 p-1 rounded-full shadow-sm shadow-slate-800 absolute top-0 right-0 bg-white'
         >
           <FontAwesomeIcon icon={faHeart}   />
@@ -16,7 +19,7 @@ function ProductCard() {
       </div>
       <div className="flex flex-col gap-2 mb-2">
         <div className="flex justify-between items-center">
-          <p>name</p>
+          <p>{name}</p>
           <span className='bg-green-600 text-white px-2 rounded-md'>
             4
             <div className=' inline-block'>
@@ -36,8 +39,8 @@ function ProductCard() {
         </div>
         <div className="flex justify-between">
           <div>
-            <span className="font-bold">₹60</span>
-            <span className=" line-through text-slate-400 ml-2">₹40</span>
+            <span className="font-bold">₹{price}</span>
+            <span className=" line-through text-slate-400 ml-2">₹{originalPrice}</span>
           </div>
           <div className=" text-green-600">50% OFF</div>
         </div>
