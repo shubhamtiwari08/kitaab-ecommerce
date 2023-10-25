@@ -127,7 +127,7 @@ export const removeFromCart=async(dispatch,userId,productId)=>{
             autoClose: 5000,
             theme: "light",
             })
-        dispatch({type:"FETCH_CART",payload:updatedCart})
+        dispatch({type:"REMOVE_FROM_CART",payload:updatedCart})
        
     } catch (error) {
         dispatch({type:"FETCH_CART_ERROR"})

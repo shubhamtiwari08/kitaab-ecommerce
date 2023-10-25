@@ -1,8 +1,8 @@
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart, removeFromCart } from '../Redux/actions'
+import { addToCart, fetchCart, removeFromCart } from '../Redux/actions'
 import { useNavigate } from 'react-router'
 
 function ProductCard({data}) {
@@ -27,10 +27,17 @@ function ProductCard({data}) {
   const handleCart = ()=>{
     if(inCart){
        removeFromCart(dispatch,user._id,data?._id)
+       fetchCart(dispatch,user._id)
     }else{
     addToCart(dispatch,user._id,data._id)
     }
   }
+
+  console.log(inCart)
+
+ 
+
+  
 
 
   return (

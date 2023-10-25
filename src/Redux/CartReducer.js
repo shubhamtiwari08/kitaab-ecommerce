@@ -24,6 +24,12 @@ export const cartReducer= (state=initialState,action) =>{
         ...state,
         cart:[...action.payload.cart.items]
     }
+    case"REMOVE_FROM_CART":
+    return{
+        ...state,
+        cart:[...action.payload.cart[0].items],
+        error:null
+    }
     case"ADD_TO_CART_ERROR":
     return {
         ...state,

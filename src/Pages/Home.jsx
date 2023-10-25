@@ -35,7 +35,7 @@ function Home() {
             <div className='flex flex-col justify-between h-56 pl-2 items-start'>
                 <h1 className='text-6xl bg-orange-400 text-white p-2 rounded-md shadow-sm shadow-slate-800 hover:bg-blue-600'>Welcome to kitaab</h1>
                 <h2 className='text-3xl bg-blue-300 p-2 rounded-md shadow-sm shadow-slate-600 cursor-pointer hover:bg-blue-600 text-white '>Find you favorite book here !</h2>
-                <button className='font-bold text-white bg-orange-400 p-2 rounded shadow-sm shadow-slate-600 hover:bg-red-500 '>shop now</button>
+                <button className='font-bold text-white bg-orange-400 p-2 rounded shadow-sm shadow-slate-600 hover:bg-red-500' onClick={()=>Navigate('/products')}>shop now</button>
             </div>
             <div className='w-42 overflow-hidden h-96'>
             <img src="https://kitaab-store.netlify.app/static/media/books.fca89f4babc9342fde13.jpg" alt="kitaab" className='w-96' />
