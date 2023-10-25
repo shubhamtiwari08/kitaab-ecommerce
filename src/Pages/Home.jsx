@@ -4,12 +4,15 @@ import ProductCard from '../Components/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../Redux/actions'
 import Footer from '../Components/Footer'
+import { useNavigate } from 'react-router'
 
 function Home() {
 
     const cart = useSelector(state => state.cartReducer)
     const product = useSelector(state=>state.productReducer)
+
     const dispatch = useDispatch()
+    const Navigate = useNavigate()
 
     const bestsellers = product.products.filter((product)=>product.isBestSeller === true)
 
@@ -40,14 +43,19 @@ function Home() {
         <div className='flex flex-col items-center mb-10'>
             <h3 className='text-4xl mb-3 font-bold text-blue-900'>Explore categories</h3>
            <div className='flex w-full justify-around px-16'>
-            <div className='section-card'>
+            <div className='section-card' onClick={()=>Navigate('/products')}>
+                <img src="https://cdn-icons-png.flaticon.com/512/5526/5526277.png" alt="fiction" className='w-20' />
                 <h4>Fiction</h4>
             </div>
-            <div className='section-card'>
+            <div className='section-card' onClick={()=>Navigate('/products')}>
+            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/nonfiction-4278721-3557423.png" alt="non-fiction" className='w-20' />
                 <h4>Non-Fiction</h4>
+              
             </div>
-            <div className='section-card'>
+            <div className='section-card' onClick={()=>Navigate('/products')}>
+                <img src="  https://cdn.iconscout.com/icon/premium/png-256-thumb/audiobook-4278761-3557463.png" alt="self-help" className='w-20' />
                 <h4>Self Help</h4>
+              
             </div>
             </div>
         </div>

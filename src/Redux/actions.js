@@ -76,6 +76,7 @@ export const addToCart=async(dispatch,userId,productId,data)=>{
         })
 
         const updatedCart = await res.json()
+        console.log(updatedCart)
         dispatch({type:"ADD_TO_CART",payload:updatedCart})
     } catch (error) {
         dispatch({type:"ADD_TO_CART_ERROR"})

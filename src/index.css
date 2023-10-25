@@ -21,7 +21,7 @@
   }
 
   .section-card{
-    @apply w-56 shadow-sm shadow-slate-600 rounded-md cursor-pointer hover:bg-orange-400 h-44 hover:text-white flex justify-center items-center font-bold
+    @apply w-56 shadow-sm shadow-slate-600 rounded-md cursor-pointer hover:bg-orange-400 h-44 hover:text-white flex flex-col justify-center items-center font-bold
   }
 
 }

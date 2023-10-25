@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../Components/Navbar'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ProductCard from '../Components/ProductCard'
+import { fetchCart, fetchProducts } from '../Redux/actions'
 
 function Products() {
 
+    const dispatch = useDispatch()
+    const userId = useSelector(state => state.authReducer).user._id
     const productList = useSelector((state)=>state.productReducer)
+  
+    const cartList = useSelector(state => state.cartReducer).cart
+
+    useEffect(()=>{
+        fetchProducts(dispatch)
+        fetchCart(dispatch,userId)
+    },[cartList])
+
 
   return (
     <div>
