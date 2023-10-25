@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCart } from '../Redux/actions'
 import ProductCard from '../Components/ProductCard'
 import { useParams } from 'react-router'
+import Footer from '../Components/Footer'
 
 function Cart() {
 
@@ -36,6 +37,7 @@ function Cart() {
         cartList.map(items => <div key={items.product?._id}><ProductCard data={items?.product}/></div>)
        )}
      </div>
+     <Footer/>
     </div>
   )
 }

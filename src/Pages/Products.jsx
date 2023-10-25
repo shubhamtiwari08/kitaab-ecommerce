@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductCard from '../Components/ProductCard'
 import { fetchCart, fetchProducts } from '../Redux/actions'
+import Footer from '../Components/Footer'
 
 function Products() {
 
@@ -42,6 +43,7 @@ function Products() {
         }
         </div>
         </div>
+        <Footer/>
     </div>
   )
 }

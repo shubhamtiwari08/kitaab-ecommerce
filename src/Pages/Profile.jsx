@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, logOut, resetCart } from '../Redux/actions'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
+import Footer from '../Components/Footer'
 
 function Profile() {
   const dispatch= useDispatch()
@@ -49,6 +50,7 @@ function Profile() {
            <button className='btn-primary' onClick={handleLogout}>logout</button>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

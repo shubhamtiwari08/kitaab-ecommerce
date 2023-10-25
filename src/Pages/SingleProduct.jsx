@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { addToCart, removeFromCart } from '../Redux/actions';
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 function SingleProduct() {
 
@@ -117,6 +118,7 @@ function SingleProduct() {
         </div>
       </div>
     </div>
+    <Footer/>
   </main>
   </>
 
