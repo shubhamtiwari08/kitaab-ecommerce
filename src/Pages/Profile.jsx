@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import Navbar from '../Components/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
-import { logOut } from '../Redux/actions'
+import { addToCart, logOut, resetCart } from '../Redux/actions'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 function Profile() {
   const dispatch= useDispatch()
@@ -17,6 +18,17 @@ function Profile() {
 
   const handleLogout =()=>{
     logOut(dispatch)
+    resetCart(dispatch)
+    toast.success('logged out !', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      })
   }
 
   useEffect(()=>{

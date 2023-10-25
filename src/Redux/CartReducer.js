@@ -29,6 +29,13 @@ export const cartReducer= (state=initialState,action) =>{
         ...state,
         error:"could not add product"
     }
+    case"RESET_CART":
+    return{
+        ...state,
+        cart:[],
+        error:null,
+        loading:false
+    }
     default:
         return state
    }

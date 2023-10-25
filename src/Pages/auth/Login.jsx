@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logIn } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function Login() {
   const initialState={
@@ -41,6 +42,16 @@ function Login() {
   useEffect(()=>{
     if(isLoggedIn){
       Navigate('/')
+      toast.success('logged in successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
       }
   },[isLoggedIn])
 

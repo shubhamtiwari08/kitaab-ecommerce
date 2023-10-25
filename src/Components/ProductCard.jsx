@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../Redux/actions'
+import { useNavigate } from 'react-router'
 
 function ProductCard({data}) {
 
@@ -13,6 +14,8 @@ function ProductCard({data}) {
 
 
   const dispatch = useDispatch()
+  const Navigate = useNavigate()
+
   const cartList = useSelector(state => state.cartReducer)
   const cart = useSelector(state => state.cartReducer).cart
   const user = useSelector(state => state.authReducer).user
@@ -33,9 +36,10 @@ function ProductCard({data}) {
   return (
     <div className=' w-56 shadow-md rounded-md shadow-slate-300 p-2'>
       <div
-        className=" w-42 relative pt-0 px-3 pb-4"
+        className=" w-42 relative pt-0 px-3 pb-4 cursor-pointer"
+        onClick={()=>Navigate(`/products/${data?._id}`)}
       >
-        <img src={data?.img} alt="product" />
+        <img src={data?.img} alt="product"  />
         <button className=' w-8 h-8 p-1 rounded-full shadow-sm shadow-slate-800 absolute top-0 right-0 bg-white'
         >
           <FontAwesomeIcon icon={faHeart}   />
@@ -66,7 +70,7 @@ function ProductCard({data}) {
             <span className="font-bold">₹{data?.price}</span>
             <span className=" line-through text-slate-400 ml-2">₹{data?.originalPrice}</span>
           </div>
-          <div className=" text-green-600">{data?.discountPercentage}% OFF</div>
+          <div className=" text-green-600">{discountPercentage}% OFF</div>
         </div>
       </div>
       {cartList.loading ?(<button className='bg-orange-500 w-full btn-primary shadow' disabled>Add to cart</button>):<button

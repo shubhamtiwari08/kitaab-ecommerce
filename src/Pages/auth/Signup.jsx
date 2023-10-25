@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { signUp } from '../../Redux/actions'
+import { toast } from 'react-toastify'
 
 function Signup() {
   const initialState = {
@@ -37,6 +38,16 @@ function Signup() {
    useEffect(()=>{
     if(signup){
       Navigate('/login')
+      toast.success('signed up !', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
     }
    },[signup])
 

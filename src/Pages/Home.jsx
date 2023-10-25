@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import Navbar from '../Components/Navbar'
 import ProductCard from '../Components/ProductCard'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProducts } from '../Redux/actions'
+import { fetchCart, fetchProducts } from '../Redux/actions'
 import Footer from '../Components/Footer'
 import { useNavigate } from 'react-router'
 
 function Home() {
-
+    
+    const userId = useSelector(state => state.authReducer).user._id
     const cart = useSelector(state => state.cartReducer)
     const product = useSelector(state=>state.productReducer)
 
@@ -21,6 +22,7 @@ function Home() {
 
     useEffect(()=>{
         fetchProducts(dispatch)
+        fetchCart(dispatch,userId)
     },[])
 
     
@@ -35,7 +37,7 @@ function Home() {
                 <h2 className='text-3xl bg-blue-300 p-2 rounded-md shadow-sm shadow-slate-600 cursor-pointer hover:bg-blue-600 text-white '>Find you favorite book here !</h2>
                 <button className='font-bold text-white bg-orange-400 p-2 rounded shadow-sm shadow-slate-600 hover:bg-red-500 '>shop now</button>
             </div>
-            <div className='w-42 overflow-hidden'>
+            <div className='w-42 overflow-hidden h-96'>
             <img src="https://kitaab-store.netlify.app/static/media/books.fca89f4babc9342fde13.jpg" alt="kitaab" className='w-96' />
             </div>
         </div>

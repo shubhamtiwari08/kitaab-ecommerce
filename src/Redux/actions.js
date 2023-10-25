@@ -1,3 +1,4 @@
+import { toast } from "react-toastify"
 
 export const signUp=async(dispatch,data)=>{
     try {
@@ -31,7 +32,12 @@ export const logIn=async(dispatch,data)=>{
         })
 
         const user = await res.json()
-        dispatch({type:"LOG_IN",payload:user})
+        if(user.user){
+            dispatch({type:"LOG_IN",payload:user.user})
+        }else{
+            dispatch({type:"LOG_IN_ERROR"})
+        }
+       
     } catch (error) {
         dispatch({type:"LOG_IN_ERROR"})
     }
@@ -74,9 +80,12 @@ export const addToCart=async(dispatch,userId,productId,data)=>{
             body:JSON.stringify(data)
 
         })
-
         const updatedCart = await res.json()
-        console.log(updatedCart)
+        toast.success('added to cart!', {
+            position: "top-right",
+            autoClose: 5000,
+            theme: "light",
+            })
         dispatch({type:"ADD_TO_CART",payload:updatedCart})
     } catch (error) {
         dispatch({type:"ADD_TO_CART_ERROR"})
@@ -113,7 +122,13 @@ export const removeFromCart=async(dispatch,userId,productId)=>{
         })
 
         const updatedCart = await res.json()
+        toast.error('removed from cart !', {
+            position: "top-right",
+            autoClose: 5000,
+            theme: "light",
+            })
         dispatch({type:"FETCH_CART",payload:updatedCart})
+       
     } catch (error) {
         dispatch({type:"FETCH_CART_ERROR"})
     }
@@ -135,5 +150,9 @@ export const removeFromWishlist=async(dispatch,userId,productId)=>{
     } catch (error) {
         dispatch({type:"FETCH_WISHLIST_ERROR"})
     }
+}
+
+export const resetCart = (dispatch) =>{
+    dispatch({type:'RESET_CART'})
 }
 

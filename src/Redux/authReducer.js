@@ -21,7 +21,7 @@ export const authReducer=(state=initialState,action)=>{
         case"LOG_IN":
         return{
             ...state,
-            user:{...action.payload.user},
+            user:{...action.payload},
             loggedIn:true,
         }
         case"LOG_IN_ERROR":

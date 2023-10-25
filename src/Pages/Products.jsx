@@ -15,7 +15,7 @@ function Products() {
     useEffect(()=>{
         fetchProducts(dispatch)
         fetchCart(dispatch,userId)
-    },[cartList])
+    },[])
 
 
   return (
