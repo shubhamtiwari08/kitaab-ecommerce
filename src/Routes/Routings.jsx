@@ -18,7 +18,7 @@ function Routings() {
             <Route path='/products' element={<Products/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/wishlist' element={<Wishlist/>}/>
-            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/user_profile' element={<Profile/>}/>
         </Routes>
     </div>
   )
