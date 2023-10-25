@@ -6,7 +6,7 @@ const initialState ={
     error:null,
 }
 
-export const authReducer= async(state=initialState,action)=>{
+export const authReducer=(state=initialState,action)=>{
     switch(action.type){
         case"SIGN_UP":
         return{
@@ -29,6 +29,8 @@ export const authReducer= async(state=initialState,action)=>{
             ...state,
             error:"could not log in"
         }
+        default:
+            return state
     }
 
 }

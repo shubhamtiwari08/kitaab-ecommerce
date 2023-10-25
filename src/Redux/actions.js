@@ -11,7 +11,9 @@ export const signUp=async(dispatch,data)=>{
         })
 
         const user = await res.json()
+      
         dispatch({type:"SIGN_UP"})
+
 
     } catch (error) {
         dispatch({type:"SIGN_UP_ERROR"})
@@ -31,6 +33,7 @@ export const logIn=async(dispatch,data)=>{
         })
 
         const user = await res.json()
+        
         dispatch({type:"LOG_IN",payload:user})
     } catch (error) {
         dispatch({type:"LOG_IN_ERROR"})

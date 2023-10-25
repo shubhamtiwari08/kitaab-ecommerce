@@ -1,66 +1,100 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { signUp } from '../../Redux/actions'
 
 function Signup() {
+  const initialState = {
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:"",
+   }
+
+  const [userData,setUserData] = useState( initialState)
+
+  const dispatch = useDispatch()
+  const Navigate = useNavigate()
+  const signup = useSelector(state=>state.authReducer).signedUp
+
+  
+
+  
+
+
+   const handleInput = (e)=>{
+    const name = e.target.name
+    const value = e.target.value
+    setUserData(prev=>({...prev,[name]:value}))
+   }
+
+   const handleSubmit = (e)=>{
+    e.preventDefault()
+    signUp(dispatch,userData)
+    setUserData(initialState)
+   }
+
+   useEffect(()=>{
+    if(signup){
+      Navigate('/login')
+    }
+   },[signup])
+
+
   return (
     <main className=" w-full flex items-center justify-center h-screen">
+      {/* signup card */}
     <div className="flex flex-col items-center justify-center w-96 gap-10 bg-blue-300 p-10 rounded shadow-2xl shadow-slate-700">
       <h2 className=' text-3xl font-mono font-bold text-white'>Sign Up</h2>
-      <form   className="flex flex-col items-center justify-center gap-8">
+      <form  onSubmit={handleSubmit}  className="flex flex-col items-center justify-center gap-8">
          
           <div className="auth-input">
             <input
+              name="firstName"
               id="firstName"
               type="text"
-              value={""}
+              value={userData.firstName}
               placeholder="First Name"
               required
-              
+              onChange={handleInput}
             />
           </div>
           <div className="auth-input">
             <input
+              name="lastName"
               id="lastName"
               type="text"
-              value={""}
+              value={userData.lastName}
               placeholder="Last Name"
               required
-             
+              onChange={handleInput}
             />
           </div>
           <div className="auth-input">
             <input
+              name='email'
               id="email"
               type="email"
-              value={""}
+              value={userData.email}
               placeholder="Enter Email"
               required
-              
+              onChange={handleInput}
             />
           </div>
           <div className="auth-input password-input">
             <input
+              name="password"
               id="password"
               type={ "text" }
-              value={""}
+              value={userData.password}
               placeholder="Enter Password"
               required
-         
+              onChange={handleInput}
             />
             
           </div>
-          <div className="auth-input password-input">
-            <input
-              id="confirm-password"
-              type={"text"}
-              value={""}
-              placeholder="Confirm Password"
-              required
-              
-            />
-          </div>
         
-        <button className="btn-primary">Sign Up</button>
+        <button className="btn-primary" type='submit'>Sign Up</button>
       </form>
       <Link to="/login" className="auth-link" >
         Already have an account? Log in
