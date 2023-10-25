@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { addToCart, removeFromCart } from '../Redux/actions';
+import Navbar from '../Components/Navbar';
 
 function SingleProduct() {
 
@@ -37,6 +38,8 @@ function SingleProduct() {
 
 
   return (
+    <>   
+     <Navbar/>
     <main className="flex flex-col justify-center items-center h-screen">
     <div className="flex p-3 shadow-lg shadow-slate-600 rounded-md">
       <div className=" w-80">
@@ -115,6 +118,8 @@ function SingleProduct() {
       </div>
     </div>
   </main>
+  </>
+
 );
   
 }
