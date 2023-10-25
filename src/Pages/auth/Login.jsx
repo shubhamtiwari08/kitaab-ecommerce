@@ -28,7 +28,15 @@ function Login() {
    
    }
 
-   console.log(isLoggedIn)
+   const handleGuest =()=>{
+    const userData = {
+      email:"st100@gmail.com",
+      password:"100"
+    }
+    logIn(dispatch,userData)
+   }
+
+
 
   useEffect(()=>{
     if(isLoggedIn){
@@ -67,7 +75,7 @@ function Login() {
 
           <div className="flex w-full justify-between gap-2">
             <button className="btn-primary" type="submit">Login</button>
-            <button className=" bg-yellow-300 text-white py-1 px-2 font-medium rounded-md hover:bg-yellow-500 shadow-md shadow-slate-600" type="button">
+            <button className=" bg-yellow-300 text-white py-1 px-2 font-medium rounded-md hover:bg-yellow-500 shadow-md shadow-slate-600" type="button" onClick={handleGuest}>
               Guest Login
             </button>
           </div>

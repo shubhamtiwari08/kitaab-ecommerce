@@ -29,6 +29,11 @@ export const authReducer=(state=initialState,action)=>{
             ...state,
             error:"could not log in"
         }
+        case"LOG_OUT":
+        return{
+            ...state,
+            loggedIn:false
+        }
         default:
             return state
     }
