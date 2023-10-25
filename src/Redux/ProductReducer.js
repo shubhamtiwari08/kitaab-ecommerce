@@ -1,6 +1,7 @@
 
 const initialState = {
     products:[],
+    search:"",
     error:null,
     loading:false
 }
@@ -25,6 +26,13 @@ export const productReducer=(state=initialState,action)=>{
     return{
         ...state,
         error:"could not load products",
+        loading:false
+    }
+    case"SEARCH_FILTER":
+    return{
+        ...state,
+        search:action.payload,
+        error:null,
         loading:false
     }
     default:

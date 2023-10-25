@@ -1,9 +1,23 @@
 import { faCartShopping, faHeart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { searchProducts } from '../Redux/actions'
 
 function Navbar() {
+
+  const [search , setSearch] = useState('')
+
+  const Navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
+  const handleSearch=(e)=>{
+    setSearch(e.target.value)
+    searchProducts(dispatch,e.target.value)
+  }
+
   return (
     <header>
     <nav className='flex justify-between items-center bg-blue-300 shadow-md shadow-slate-400 h-16 p-8'>
@@ -14,9 +28,11 @@ function Navbar() {
       <form className="search-input">
         <input
           type="text"
-          value={""}
+          value={search}
           placeholder="Search for books"
-          className='rounded-r-none'
+          className='rounded-r-none outline-none'
+          onChange={handleSearch}
+          onClick={()=>Navigate('/products')}
         />
         <button className='btn-primary w-8 shadow rounded-l-none'>
           <FontAwesomeIcon icon={faMagnifyingGlass} />

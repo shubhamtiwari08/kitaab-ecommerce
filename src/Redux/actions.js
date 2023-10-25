@@ -60,6 +60,10 @@ export const fetchProducts = async(dispatch)=>{
     }
 }
 
+export const searchProducts=(dispatch,name)=>{
+    dispatch({type:"SEARCH_FILTER",payload:name})
+}
+
 export const fetchCart = async(dispatch,userId)=>{
     try {
         const res = await fetch(`https://e-commerce.shubhamtiwari39.repl.co/cart/${userId}`)
@@ -93,23 +97,23 @@ export const addToCart=async(dispatch,userId,productId,data)=>{
 }
 
 
-export const addToWishlist=async(dispatch,userId,productId,data)=>{
-    try {
-        const res = await fetch(`https://e-commerce.shubhamtiwari39.repl.co/wishlist/${userId}/${productId}`,{
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify(data)
+// export const addToWishlist=async(dispatch,userId,productId,data)=>{
+//     try {
+//         const res = await fetch(`https://e-commerce.shubhamtiwari39.repl.co/wishlist/${userId}/${productId}`,{
+//             method:'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body:JSON.stringify(data)
 
-        })
+//         })
 
-        const updatedWishlist= await res.json()
-        dispatch({type:"ADD_TO_WISHLIST",payload:updatedWishlist})
-    } catch (error) {
-        dispatch({type:"ADD_TO_WISHLIST_ERROR"})
-    }
-}
+//         const updatedWishlist= await res.json()
+//         dispatch({type:"ADD_TO_WISHLIST",payload:updatedWishlist})
+//     } catch (error) {
+//         dispatch({type:"ADD_TO_WISHLIST_ERROR"})
+//     }
+// }
 
 export const removeFromCart=async(dispatch,userId,productId)=>{
     try {
